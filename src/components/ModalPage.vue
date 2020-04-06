@@ -1,25 +1,34 @@
 <template>
-  <ModalPage header="Need Help ?" 
-  content=" Move your mouse on the top rectangle, then drag and drop the patters in the grid ! Move your mouse on the bottom rectangle, to bring the grod to life !"
-  footer="GO TO GAME!"
-  destination="/gol"/>
+  <div class="modal-page">
+    <div class="content-box">
+      <div class="header">
+        <h1>{{header}}</h1>
+      </div>
+      <div class="content">
+        <p>{{content}}</p>
+      </div>
+      <div class="footer">
+        <router-link :to="destination">##~ {{footer}} ~## </router-link>
+      </div>
+    </div>
+  </div>
 </template>
 
-<script>
-import ModalPage from '@/components/ModalPage' 
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-export default {
-
-  name: 'About',
-  components:{
-    ModalPage
-  }
+@Component
+export default class ModalPage extends Vue {
+  @Prop() private header!: string;
+  @Prop() private content!: string;
+  @Prop() private footer!: string;
+  @Prop() private destination!: string;
 }
-</script>
+</script>>
 
 <style lang="scss">
   @import '@/assets/theme_love.scss';
-  #about{
+  .modal-page{
     .content-box{
       max-width: 600px;
       margin: auto;
