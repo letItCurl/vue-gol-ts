@@ -34,13 +34,14 @@ export default {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 10px;
+    height: 20px;
     transition: $speed;
     &:hover{
         transition: $speed;
         height: 50px;        
     }
     .panel{
+        background: $grey;
         overflow: hidden;
         width: 300px;
         height: 100%;

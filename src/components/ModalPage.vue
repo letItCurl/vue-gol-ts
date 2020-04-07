@@ -29,6 +29,7 @@ export default class ModalPage extends Vue {
 <style lang="scss">
   @import '@/assets/theme_love.scss';
   .modal-page{
+    margin: 15px;
     .content-box{
       max-width: 600px;
       margin: auto;
