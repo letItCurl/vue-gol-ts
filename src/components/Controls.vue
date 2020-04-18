@@ -37,7 +37,7 @@ export default class Controls extends Vue {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 20px;
+    height: 50px;
     transition: $speed;
     &:hover{
         transition: $speed;

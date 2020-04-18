@@ -15,3 +15,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .gol{
+    height: 100vh;
+  }
+</style>
