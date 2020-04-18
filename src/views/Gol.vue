@@ -39,7 +39,7 @@ export default class Grid extends Vue{
     }
     for(let j = 0; j < n ; j ++){
       for(let i = 0; i < n ; i ++){
-        if(i===7 && j===7){
+        if(i===7 && (j===7 || j===8)  ){
           ctx.fillRect(rectW*i+1, rectW*j+1, rectW-2, rectW-2);
         }
       }
