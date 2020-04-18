@@ -51,7 +51,7 @@ export default class Controls extends Vue {
         border-top-left-radius: 5px 5px;
         border-top-right-radius: 5px 5px;
         border: 1px solid $text-secondary;
-        box-shadow: 3px -2px 2px 1px $bg-secondary;
+        box-shadow: 0 0 12px 4px $shadow;
         ul.panel-actions{
         display: flex;
         justify-content: space-around;

@@ -3,19 +3,19 @@
     <div class="panel">
         <ul class="panel-actions">
           <li class="panel-element">
-            <p>yes!</p>
+            <p>A</p>
           </li>
           <li class="panel-element">
-            <p>yes!</p>
+            <p>B</p>
           </li>
           <li class="panel-element"> 
-            <p>yes!</p>
+            <p>C</p>
           </li>
           <li class="panel-element"> 
-            <p>yes!</p>
+            <p>D</p>
           </li>
           <li class="panel-element"> 
-            <p>yes!</p>
+            <p>E</p>
           </li>
         </ul>
       </div>
@@ -32,7 +32,7 @@ export default {
     @import '@/assets/theme_love.scss';
     #topbar{
     position: fixed;
-    top: 0;
+    top: -1px;
     width: 100%;
     height: 50px;
     transition: $speed;
@@ -41,6 +41,7 @@ export default {
         height: 50px;        
     }
     .panel{
+        color: $text-primary;
         background: $grey;
         overflow: hidden;
         width: 300px;
@@ -49,7 +50,7 @@ export default {
         border-bottom-left-radius: 5px 5px;
         border-bottom-right-radius: 5px 5px;
         border: 1px solid $text-secondary;
-        box-shadow: 3px 2px 2px 1px $bg-secondary;
+        box-shadow: 0 0 12px 4px $shadow;
         ul.panel-actions{
         display: flex;
         justify-content: space-around;
