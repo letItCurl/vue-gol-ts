@@ -18,8 +18,27 @@ export default new Vuex.Store({
     astroWorld
   },
   mutations: {
+    NEXT(state){
+      console.log("NEXT", state.astroWorld)
+      state.astroWorld.nextDay()
+    }
   },
   actions: {
+    back(): void {
+      console.log('back action')
+    },
+    playPause(): void {
+      console.log('back playPause')
+    },
+    next(context): void {
+      console.log('next action')
+      context.commit('NEXT')
+    }
+  },
+  getters:{
+    astroWorld(state){
+      return state.astroWorld
+    }
   },
   modules: {
   }

@@ -5,12 +5,21 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, Model, Watch } from 'vue-property-decorator';
 
 @Component
 export default class Grid extends Vue{
+
+  //map = this.$store.getters.astroWorld.map
+  @Model('map')
+  readonly map = this.$store.getters.astroWorld.map
+
+  @Watch('map')
+  onChildChanged(val: any, oldVal: any) {
+    console.log('changed')
+  }
+
   mounted(){
-    console.log("i'm mounted")
     this.validate(this.drawGrid)
   }
 
@@ -19,7 +28,7 @@ export default class Grid extends Vue{
     console.log(canvas)
     if (canvas.getContext) {
       const ctx = canvas.getContext('2d');
-      console.log("validated")
+      console.log("canvas validated")
       code(ctx)
     } else {
         throw "canvas not supported";
@@ -39,7 +48,7 @@ export default class Grid extends Vue{
     }
     for(let j = 0; j < n ; j ++){
       for(let i = 0; i < n ; i ++){
-        if(i===7 && (j===7 || j===8)  ){
+        if(this.map[j][i] === 1){
           ctx.fillRect(rectW*i+1, rectW*j+1, rectW-2, rectW-2);
         }
       }
