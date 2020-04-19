@@ -6,29 +6,26 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Model, Watch } from 'vue-property-decorator';
-
 @Component
 export default class Grid extends Vue{
 
-  //map = this.$store.getters.astroWorld.map
-  @Model('map')
-  readonly map = this.$store.getters.astroWorld.map
-
-  @Watch('map')
-  onChildChanged(val: any, oldVal: any) {
-    console.log('changed')
+  get computedMap (){
+    return this.$store.getters.map
   }
 
-  mounted(){
+  @Watch('computedMap')
+  onMapChanged(val: any, oldVal: any) {
     this.validate(this.drawGrid)
+  }
+  
+  mounted(){
+    this.validate(this.drawGrid);
   }
 
   validate(code: any): void {
     const canvas: any = document.getElementById('grid');
-    console.log(canvas)
     if (canvas.getContext) {
       const ctx = canvas.getContext('2d');
-      console.log("canvas validated")
       code(ctx)
     } else {
         throw "canvas not supported";
@@ -48,13 +45,15 @@ export default class Grid extends Vue{
     }
     for(let j = 0; j < n ; j ++){
       for(let i = 0; i < n ; i ++){
-        if(this.map[j][i] === 1){
+        if(this.computedMap[j][i] === 1){
+          ctx.fillStyle = '#f694ff';
           ctx.fillRect(rectW*i+1, rectW*j+1, rectW-2, rectW-2);
+        }else{
+          ctx.clearRect(rectW*i+1, rectW*j+1, rectW-2, rectW-2);
         }
       }
     }
   }
-  
 
 }
 </script>
