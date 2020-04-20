@@ -9,11 +9,11 @@ const astroWorld = new world["default"](30);
 const antiSocial = new socialGroups["default"](astroWorld.getGrid())
 
 astroWorld.initWorld()
-antiSocial.frog(4,3)
-antiSocial.frog(24,3)
-antiSocial.barFive(15,14)
-antiSocial.frog(4,24)
-antiSocial.frog(24,24)
+//antiSocial.frog(4,3)
+//antiSocial.frog(24,3)
+//antiSocial.barFive(15,14)
+//antiSocial.frog(4,24)
+//antiSocial.frog(24,24)
 
 Vue.use(Vuex)
 
@@ -53,6 +53,22 @@ export default new Vuex.Store({
     CLEAR(state){
       astroWorld.clear()
       state.map = [...astroWorld.map]
+    },
+    SET_BAR_FIVE(state, payload){
+      antiSocial.barFive(payload.X,payload.Y)
+      state.map = [...astroWorld.map]
+    },
+    SET_FROG(state, payload){
+      antiSocial.frog(payload.X,payload.Y)
+      state.map = [...astroWorld.map]
+    },
+    SET_GLIDER(state, payload){
+      antiSocial.glider(payload.X,payload.Y)
+      state.map = [...astroWorld.map]
+    },
+    SET_U_CLOWN(state, payload){
+      antiSocial.uClown(payload.X,payload.Y)
+      state.map = [...astroWorld.map]
     }
   },
   actions: {
@@ -67,6 +83,18 @@ export default new Vuex.Store({
     },
     clear(context): void{
       context.commit('CLEAR')
+    },
+    barFive(context, payload){
+      context.commit('SET_BAR_FIVE', payload)
+    },
+    frog(context, payload){
+      context.commit('SET_FROG', payload)
+    },
+    glider(context, payload){
+      context.commit('SET_GLIDER', payload)
+    },
+    uClown(context, payload){
+      context.commit('SET_U_CLOWN', payload)
     }
   },
   getters:{

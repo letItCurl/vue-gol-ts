@@ -2,17 +2,17 @@
   <div id="topbar">
     <div class="panel">
         <ul class="panel-actions">
-          <li class="panel-element">
-            <p>A</p>
+          <li id="barFive" draggable="true" @dragstart="dragstart" class="panel-element">
+            <p>BF</p>
           </li>
-          <li class="panel-element">
-            <p>B</p>
+          <li id="frog" draggable="true" @dragstart="dragstart" class="panel-element">
+            <p>FR</p>
           </li>
-          <li class="panel-element"> 
-            <p>C</p>
+          <li id="glider" draggable="true" @dragstart="dragstart" class="panel-element">
+            <p>GL</p>
           </li>
-          <li class="panel-element"> 
-            <p>D</p>
+          <li id="uClown" draggable="true" @dragstart="dragstart" class="panel-element">
+            <p>UC</p>
           </li>
           <li class="panel-element"> 
             <p>E</p>
@@ -24,7 +24,12 @@
 
 <script>
 export default {
-
+  methods: {
+      dragstart(e){
+        e.dataTransfer.setData("application/preset-drop", e.target.id);
+        e.dataTransfer.dropEffect = "move";
+      }
+  }
 }
 </script>
 

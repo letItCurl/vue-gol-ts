@@ -1,6 +1,6 @@
 <template>
   <div class="gol">
-    <canvas id="grid" width="800" height="800" n="30"></canvas>
+    <canvas @dragover="dragOver" @drop="drop"  id="grid" width="800" height="800" n="30"></canvas>
   </div>
 </template>
 
@@ -22,6 +22,23 @@ export default class Grid extends Vue{
     this.validate(this.drawGrid);
   }
 
+  drop(e){
+    console.log("drop")
+    const action = e.dataTransfer.getData("application/preset-drop")
+    const canvas: any = document.getElementById('grid');
+    const width = canvas.width;
+    const n = canvas.getAttribute('n');
+    const rectW = width / n;
+    const X = Math.floor(e.offsetX / rectW)
+    const Y = Math.floor(e.offsetY / rectW)
+    console.log("x: ",X,"| y: ",Y)
+    this.$store.dispatch(action, {X,Y})
+  }
+
+  dragOver(e: any){
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move"
+  }
   validate(code: any): void {
     const canvas: any = document.getElementById('grid');
     if (canvas.getContext) {
