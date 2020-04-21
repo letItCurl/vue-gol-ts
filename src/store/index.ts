@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import {world, socialGroups} from "gol-engine"
 import { flow } from '@/rxjs/index'
+import { backConcern } from '@/concerns/store_concerns'
 
 const astroWorld = new world["default"](30);
 const antiSocial = new socialGroups["default"](astroWorld.getGrid())
@@ -11,7 +12,6 @@ astroWorld.initWorld()
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-
   state: {
     map: astroWorld.map,
     time: {}
@@ -22,13 +22,7 @@ export default new Vuex.Store({
       state.map = [...astroWorld.map]
     },
     BACK(state){
-      const time = astroWorld.history.length;
-      if(time > 0){
-        const back = astroWorld.history[time-1]
-        state.map = [...back]
-        astroWorld.map = [...back]
-        astroWorld.history = [...astroWorld.history.slice(0,time-1)]
-      }
+      backConcern(state, astroWorld)
     },
     PLAY_PAUSE(state, payload){
       if(!payload){
@@ -43,13 +37,7 @@ export default new Vuex.Store({
     REWIND(state, payload){
       if(!payload){
         state.time = flow.subscribe(x=>{
-          const time = astroWorld.history.length;
-            if(time > 0){
-              const back = astroWorld.history[time-1]
-              state.map = [...back]
-              astroWorld.map = [...back]
-              astroWorld.history = [...astroWorld.history.slice(0,time-1)]
-            }
+          backConcern(state, astroWorld)
         })
       }else{
         state.time.unsubscribe()
