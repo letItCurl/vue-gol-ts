@@ -1,4 +1,4 @@
 import {interval} from 'rxjs'
 
-export const flow = interval(150)
+export const flow = interval(100)
 

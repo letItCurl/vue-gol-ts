@@ -3,17 +3,10 @@ import Vuex from 'vuex'
 import {world, socialGroups} from "gol-engine"
 import { flow } from '@/rxjs/index'
 
-import { Observable } from 'rxjs'
-
 const astroWorld = new world["default"](30);
 const antiSocial = new socialGroups["default"](astroWorld.getGrid())
 
 astroWorld.initWorld()
-//antiSocial.frog(4,3)
-//antiSocial.frog(24,3)
-//antiSocial.barFive(15,14)
-//antiSocial.frog(4,24)
-//antiSocial.frog(24,24)
 
 Vue.use(Vuex)
 
@@ -25,7 +18,6 @@ export default new Vuex.Store({
   },
   mutations: {
     NEXT(state){
-      console.log("NEXT")
       astroWorld.nextDay()
       state.map = [...astroWorld.map]
     },
@@ -35,18 +27,16 @@ export default new Vuex.Store({
         const back = astroWorld.history[time-1]
         state.map = [...back]
         astroWorld.map = [...back]
-        astroWorld.history = astroWorld.history.slice(0,time-1)
+        astroWorld.history = [...astroWorld.history.slice(0,time-1)]
       }
     },
     PLAY_PAUSE(state, payload){
       if(!payload){
-        console.log("playing")
         state.time = flow.subscribe(x=>{
           astroWorld.nextDay()
           state.map = [...astroWorld.map]
         })
       }else{
-        console.log("paused")
         state.time.unsubscribe()
       }
     },
@@ -55,19 +45,19 @@ export default new Vuex.Store({
       state.map = [...astroWorld.map]
     },
     SET_BAR_FIVE(state, payload){
-      antiSocial.barFive(payload.X,payload.Y)
+      astroWorld.barFive(payload.X,payload.Y)
       state.map = [...astroWorld.map]
     },
     SET_FROG(state, payload){
-      antiSocial.frog(payload.X,payload.Y)
+      astroWorld.frog(payload.X,payload.Y)
       state.map = [...astroWorld.map]
     },
     SET_GLIDER(state, payload){
-      antiSocial.glider(payload.X,payload.Y)
+      astroWorld.glider(payload.X,payload.Y)
       state.map = [...astroWorld.map]
     },
     SET_U_CLOWN(state, payload){
-      antiSocial.uClown(payload.X,payload.Y)
+      astroWorld.uClown(payload.X,payload.Y)
       state.map = [...astroWorld.map]
     }
   },

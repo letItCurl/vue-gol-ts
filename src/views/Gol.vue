@@ -9,6 +9,8 @@ import { Component, Prop, Vue, Model, Watch } from 'vue-property-decorator';
 @Component
 export default class Grid extends Vue{
 
+  
+
   get computedMap (){
     return this.$store.getters.map
   }
@@ -19,11 +21,11 @@ export default class Grid extends Vue{
   }
   
   mounted(){
+    console.log("monted gol")
     this.validate(this.drawGrid);
   }
 
   drop(e){
-    console.log("drop")
     const action = e.dataTransfer.getData("application/preset-drop")
     const canvas: any = document.getElementById('grid');
     const width = canvas.width;
