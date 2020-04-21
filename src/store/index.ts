@@ -40,6 +40,21 @@ export default new Vuex.Store({
         state.time.unsubscribe()
       }
     },
+    REWIND(state, payload){
+      if(!payload){
+        state.time = flow.subscribe(x=>{
+          const time = astroWorld.history.length;
+            if(time > 0){
+              const back = astroWorld.history[time-1]
+              state.map = [...back]
+              astroWorld.map = [...back]
+              astroWorld.history = [...astroWorld.history.slice(0,time-1)]
+            }
+        })
+      }else{
+        state.time.unsubscribe()
+      }
+    },
     CLEAR(state){
       astroWorld.clear()
       state.map = [...astroWorld.map]
@@ -85,6 +100,9 @@ export default new Vuex.Store({
     },
     uClown(context, payload){
       context.commit('SET_U_CLOWN', payload)
+    },
+    rewind(context, payload){
+      context.commit('REWIND', payload)
     }
   },
   getters:{
