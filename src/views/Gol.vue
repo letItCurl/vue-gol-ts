@@ -1,19 +1,26 @@
 <template>
-  <draggable class="gol">
-    <canvas @dragover="dragOver" @drop="drop" @mouseup="debug" id="grid" width="800" height="800" n="30"></canvas>
-  </draggable>
+  <div class="gol">
+    <canvas @dragover="dragOver" @drop="drop" @click="debug" id="grid" width="800" height="800" n="30"></canvas>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue, Model, Watch } from 'vue-property-decorator';
-import draggable from 'vuedraggable'
 
 @Component
 export default class Grid extends Vue{
 
-  
+  canvas: any;
+  n: any;
+  width: any;
+  rectW: any;
+
   get computedMap (){
     return this.$store.getters.map
+  }
+
+  get computedMobileActive (){
+    return this.$store.getters.mobileActive
   }
 
   @Watch('computedMap')
@@ -22,19 +29,22 @@ export default class Grid extends Vue{
   }
   
   mounted(){
-    this.validate(this.drawGrid);   
+    this.canvas = document.getElementById('grid');
+    this.n = this.canvas.getAttribute('n');
+    this.width = this.canvas.width;
+    this.rectW = this.width / this.n;
+    this.validate(this.drawGrid);
   }
   debug(e: any){
-    console.log(e.target.id)
+    console.log(e)
+    const X = Math.floor(e.offsetX / this.rectW)
+    const Y = Math.floor(e.offsetY / this.rectW)
+    this.$store.dispatch(this.computedMobileActive, {X,Y})
   }
   drop(e: any){
     const action = e.dataTransfer.getData("application/preset-drop")
-    const canvas: any = document.getElementById('grid');
-    const width = canvas.width;
-    const n = canvas.getAttribute('n');
-    const rectW = width / n;
-    const X = Math.floor(e.offsetX / rectW)
-    const Y = Math.floor(e.offsetY / rectW)
+    const X = Math.floor(e.offsetX / this.rectW)
+    const Y = Math.floor(e.offsetY / this.rectW)
     this.$store.dispatch(action, {X,Y})
   }
 

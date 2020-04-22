@@ -1,39 +1,46 @@
 <template>
   <div id="topbar">
-    <draggable class="panel">
+    <div class="panel">
         <ul class="panel-actions">
-          <li id="barFive" draggable="true" class="panel-element">
+          <li id="barFive" @click="register" draggable="true" @dragstart="dragstart" class="panel-element">
             <p>BF</p>
           </li>
-          <li id="frog" class="panel-element">
+          <li id="frog" @click="register" draggable="true" @dragstart="dragstart" class="panel-element">
             <p>FR</p>
           </li>
-          <li id="glider" class="panel-element">
+          <li id="glider" @click="register" draggable="true" @dragstart="dragstart" class="panel-element">
             <p>GL</p>
           </li>
-          <li id="uClown" class="panel-element">
+          <li id="uClown" @click="register" draggable="true" @dragstart="dragstart" class="panel-element">
             <p>UC</p>
           </li>
-          <li class="panel-element"> 
-            <p>E</p>
-          </li>
         </ul>
-      </draggable>
+      </div>
   </div>
 </template>
 
 <script>
-import draggable from 'vuedraggable'
 
 export default {
-  components: {
-    draggable
-  },
   methods: {
       dragstart(e){
         e.dataTransfer.setData("application/preset-drop", e.target.id);
         e.dataTransfer.dropEffect = "move";
+      },
+      register(e){
+        const el = e.currentTarget.id;
+        document.getElementById(this.getMobileActive).classList.remove('active')
+        document.getElementById(el).classList.add('active')
+        this.$store.dispatch('mobileActive', el)
       }
+  },
+  computed: {
+    getMobileActive: function(){
+      return this.$store.getters.mobileActive
+    }
+  },
+  mounted(){
+    document.getElementById(this.getMobileActive).classList.add('active')
   }
 }
 </script>
@@ -49,6 +56,10 @@ export default {
     &:hover{
         transition: $speed;
         height: 50px;        
+    }
+    .active{
+      transform: scale(1.3);
+      box-shadow: 0 0 12px 4px $shadow;
     }
     .panel{
         color: $text-primary;
@@ -70,7 +81,9 @@ export default {
         margin-top: 5px;
         width: 45px;
         text-align: center;
+        transition: $speed;
         cursor: pointer;
+        &:hover{transform: scale(1.2);}
         svg{ 
             color: $text-primary;
             width: 25px;

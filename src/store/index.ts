@@ -16,7 +16,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     map: astroWorld.map,
-    time: {}
+    time: {},
+    mobileActive: 'barFive'
   },
   mutations: {
     NEXT(state){
@@ -67,6 +68,9 @@ export default new Vuex.Store({
     SET_U_CLOWN(state, payload){
       astroWorld.uClown(payload.X,payload.Y)
       state.map = [...astroWorld.map]
+    },
+    MOBILE_ACTIVE(state, payload){
+      state.mobileActive = payload
     }
   },
   actions: {
@@ -96,11 +100,17 @@ export default new Vuex.Store({
     },
     rewind(context, payload){
       context.commit('REWIND', payload)
+    },
+    mobileActive(context, payload){
+      context.commit('MOBILE_ACTIVE', payload)
     }
   },
   getters:{
     map(state){
       return state.map
+    },
+    mobileActive(state){
+      return state.mobileActive
     }
   },
   modules: {
