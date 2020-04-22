@@ -25,11 +25,15 @@
 
 <script lang="ts">
 import { Component, /*Prop,*/ Vue } from 'vue-property-decorator';
+import { dataBus } from '@/rxjs/message';
+
 
 @Component
 export default class Controls extends Vue {
   toggleIcon = false;
   cursorStyle = "pointer";
+  getData: any;
+
   back(): void {
     this.lockClicks('back')
   }
@@ -51,6 +55,12 @@ export default class Controls extends Vue {
   }
   lockClicks(action: string): void{
     if(!this.toggleIcon){this.$store.dispatch(action)}
+  }
+  mounted(){
+    this.getData = dataBus.getMessage().subscribe(pipe => {if(pipe.message === "UNLOCK"){this.playPause()}});
+  }
+  beforeDestroy(){
+    this.getData.unsubscribe()
   }
 }
 </script>

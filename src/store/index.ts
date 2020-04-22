@@ -1,13 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {world, socialGroups} from "gol-engine"
+import {world} from "gol-engine"
 import { flow } from '@/rxjs/index'
 import { backConcern } from '@/concerns/store_concerns'
+import { dataBus } from '@/rxjs/message';
 
 const astroWorld = new world["default"](30);
-const antiSocial = new socialGroups["default"](astroWorld.getGrid())
 
 astroWorld.initWorld()
+
+astroWorld.uClown(15,15)
 
 Vue.use(Vuex)
 
@@ -37,7 +39,10 @@ export default new Vuex.Store({
     REWIND(state, payload){
       if(!payload){
         state.time = flow.subscribe(x=>{
-          backConcern(state, astroWorld)
+          if(!backConcern(state, astroWorld)){
+            state.time.unsubscribe()
+            dataBus.sendMessage('UNLOCK');
+          }
         })
       }else{
         state.time.unsubscribe()

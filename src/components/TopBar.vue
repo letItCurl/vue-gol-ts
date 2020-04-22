@@ -1,29 +1,34 @@
 <template>
   <div id="topbar">
-    <div class="panel">
+    <draggable class="panel">
         <ul class="panel-actions">
-          <li id="barFive" draggable="true" @dragstart="dragstart" class="panel-element">
+          <li id="barFive" draggable="true" class="panel-element">
             <p>BF</p>
           </li>
-          <li id="frog" draggable="true" @dragstart="dragstart" class="panel-element">
+          <li id="frog" class="panel-element">
             <p>FR</p>
           </li>
-          <li id="glider" draggable="true" @dragstart="dragstart" class="panel-element">
+          <li id="glider" class="panel-element">
             <p>GL</p>
           </li>
-          <li id="uClown" draggable="true" @dragstart="dragstart" class="panel-element">
+          <li id="uClown" class="panel-element">
             <p>UC</p>
           </li>
           <li class="panel-element"> 
             <p>E</p>
           </li>
         </ul>
-      </div>
+      </draggable>
   </div>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
+
 export default {
+  components: {
+    draggable
+  },
   methods: {
       dragstart(e){
         e.dataTransfer.setData("application/preset-drop", e.target.id);

@@ -1,16 +1,17 @@
 <template>
-  <div class="gol">
-    <canvas @dragover="dragOver" @drop="drop"  id="grid" width="800" height="800" n="30"></canvas>
-  </div>
+  <draggable class="gol">
+    <canvas @dragover="dragOver" @drop="drop" @mouseup="debug" id="grid" width="800" height="800" n="30"></canvas>
+  </draggable>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue, Model, Watch } from 'vue-property-decorator';
+import draggable from 'vuedraggable'
+
 @Component
 export default class Grid extends Vue{
 
   
-
   get computedMap (){
     return this.$store.getters.map
   }
@@ -21,11 +22,12 @@ export default class Grid extends Vue{
   }
   
   mounted(){
-    console.log("monted gol")
-    this.validate(this.drawGrid);
+    this.validate(this.drawGrid);   
   }
-
-  drop(e){
+  debug(e: any){
+    console.log(e.target.id)
+  }
+  drop(e: any){
     const action = e.dataTransfer.getData("application/preset-drop")
     const canvas: any = document.getElementById('grid');
     const width = canvas.width;
@@ -33,7 +35,6 @@ export default class Grid extends Vue{
     const rectW = width / n;
     const X = Math.floor(e.offsetX / rectW)
     const Y = Math.floor(e.offsetY / rectW)
-    console.log("x: ",X,"| y: ",Y)
     this.$store.dispatch(action, {X,Y})
   }
 
@@ -57,13 +58,13 @@ export default class Grid extends Vue{
     const rectW = width / n; 
     ctx.fillStyle = '#f694ff';
     ctx.strokeStyle = '#df00f3';
-    for(let j = 0; j < n ; j ++){
-      for(let i = 0; i < n ; i ++){
+    for(let j = 1; j < n-1 ; j ++){
+      for(let i = 1; i < n-1 ; i ++){
         ctx.strokeRect(rectW*i, rectW*j, rectW, rectW);
       }
     }
-    for(let j = 0; j < n ; j ++){
-      for(let i = 0; i < n ; i ++){
+    for(let j = 1; j < n-1 ; j ++){
+      for(let i = 1; i < n-1 ; i ++){
         if(this.computedMap[j][i] === 1){
           ctx.fillStyle = '#f694ff';
           ctx.fillRect(rectW*i+1, rectW*j+1, rectW-2, rectW-2);
@@ -77,7 +78,7 @@ export default class Grid extends Vue{
 }
 </script>
 <style lang="scss">
-  canvas#grid { border: 1px solid #df00f3; height: 800px; width: 800px}
+  canvas#grid { height: 800px; width: 800px}
   .gol{
     overflow: auto;
     height: 100vh;
