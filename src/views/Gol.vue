@@ -1,6 +1,6 @@
 <template>
   <div class="gol">
-    <canvas @dragover="dragOver" @drop="drop" @click="debug" id="grid" width="800" height="800" n="30"></canvas>
+    <canvas @dragover="dragOver" @drop="drop" @click="clickEv" id="grid" width="800" height="800" n="30"></canvas>
   </div>
 </template>
 
@@ -35,8 +35,7 @@ export default class Grid extends Vue{
     this.rectW = this.width / this.n;
     this.validate(this.drawGrid);
   }
-  debug(e: any){
-    console.log(e)
+  clickEv(e: any){
     const X = Math.floor(e.offsetX / this.rectW)
     const Y = Math.floor(e.offsetY / this.rectW)
     this.$store.dispatch(this.computedMobileActive, {X,Y})

@@ -9,8 +9,6 @@ const astroWorld = new world["default"](30);
 
 astroWorld.initWorld()
 
-astroWorld.uClown(15,15)
-
 Vue.use(Vuex)
 
 export default new Vuex.Store({

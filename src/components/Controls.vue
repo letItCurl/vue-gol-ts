@@ -7,7 +7,7 @@
           </li>
           <li class="panel-element" @click="playPause">
             <svg v-if="toggleIcon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pause" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-pause fa-w-14 fa-lg"><path fill="currentColor" d="M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z" class=""></path></svg>
-            <svg v-else aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-play fa-w-14 fa-lg"><path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" class=""></path></svg>
+            <svg v-else aria-hidden="true" focusable="false" data-prefix="fal" data-icon="play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-play fa-w-14 fa-lg"><path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6zm-16.2 55.1l-352 208C45.6 483.9 32 476.6 32 464V47.9c0-16.3 16.4-18.4 24.1-13.8l352 208.1c10.5 6.2 10.5 21.4.1 27.6z" class=""></path></svg>
           </li>
           <li :style="{cursor: cursorStyle}" class="panel-element" @click="next"> 
             <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="angle-double-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-angle-double-right fa-w-12 fa-2x"><path fill="currentColor" d="M363.8 264.5L217 412.5c-4.7 4.7-12.3 4.7-17 0l-19.8-19.8c-4.7-4.7-4.7-12.3 0-17L298.7 256 180.2 136.3c-4.7-4.7-4.7-12.3 0-17L200 99.5c4.7-4.7 12.3-4.7 17 0l146.8 148c4.7 4.7 4.7 12.3 0 17zm-160-17L57 99.5c-4.7-4.7-12.3-4.7-17 0l-19.8 19.8c-4.7 4.7-4.7 12.3 0 17L138.7 256 20.2 375.7c-4.7 4.7-4.7 12.3 0 17L40 412.5c4.7 4.7 12.3 4.7 17 0l146.8-148c4.7-4.7 4.7-12.3 0-17z" class=""></path></svg>
@@ -38,6 +38,7 @@ export default class Controls extends Vue {
     this.lockClicks('back')
   }
   rewind(): void {
+    console.log("rewind")
     this.$store.dispatch('rewind', this.toggleIcon)
     this.toggleIcon = !this.toggleIcon
     this.cursorStyle = (this.cursorStyle==='pointer')? 'not-allowed':'pointer'
@@ -71,12 +72,8 @@ export default class Controls extends Vue {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 50px;
+    height: 60px;
     transition: $speed;
-    &:hover{
-        transition: $speed;
-        height: 50px;        
-    }
     .panel{
         background: $grey;
         width: 300px;
@@ -89,7 +86,7 @@ export default class Controls extends Vue {
         ul.panel-actions{
         display: flex;
         justify-content: space-around;
-        margin-top: 7px;
+        margin-top: 13px;
         }
         li.panel-element{
         margin-top: 5px;

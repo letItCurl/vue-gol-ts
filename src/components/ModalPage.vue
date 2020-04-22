@@ -39,6 +39,7 @@ export default class ModalPage extends Vue {
       border-radius: 5px;
       border: 1px solid $text-secondary;
       box-shadow: 3px 0px 5px 1px $bg-secondary;
+      color: $text-primary;
       padding: 10px;
       .header{
         text-align: center;
