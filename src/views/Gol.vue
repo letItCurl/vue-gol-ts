@@ -87,7 +87,6 @@ export default class Grid extends Vue{
 }
 </script>
 <style lang="scss">
-  canvas#grid { height: 800px; width: 800px}
   .gol{
     overflow: auto;
     height: 100vh;

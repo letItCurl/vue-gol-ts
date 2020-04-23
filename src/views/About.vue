@@ -1,8 +1,13 @@
 <template>
-  <ModalPage header="Need Help ?" 
-  content=" Move your mouse on the top rectangle, then drag and drop the patters in the grid ! Move your mouse on the bottom rectangle, to bring the grod to life !"
-  footer="GO TO GAME!"
-  destination="/gol"/>
+  <ModalPage destination="/" :destinationName="false">
+    <template v-slot:header>
+      <h1>wHAT IS THIS ??</h1>
+    </template>
+    <p>This game is a cellular automata named "the game of life"</p>
+    <p>Basically a cell can survive, die or born based on the amount of neibourhoods.</p>
+    <a href="https://www.youtube.com/watch?v=E8kUJL04ELA">click here for more info...</a>
+    <h4>Here is how to play:</h4>
+  </ModalPage>
 </template>
 
 <script>

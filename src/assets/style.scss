@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&family=Permanent+Marker&display=swap');
+@import '@/assets/theme_love.scss';
 
 $marker: 'Permanent Marker', cursive;
 $comic: 'Comic Neue', cursive;
@@ -21,4 +22,17 @@ a{
     text-decoration: none;
     outline: none;
     color: inherit;
+}
+svg{ 
+    color: $text-primary;
+    width: 25px;
+    height: 25px;
+    transition: $speed;
+    path{
+    margin: auto;
+    }
+    &:hover{
+      transform: scale(1.3);
+      color: $active-color;
+    }
 }

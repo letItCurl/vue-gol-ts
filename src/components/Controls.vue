@@ -94,21 +94,7 @@ export default class Controls extends Vue {
         height: 30px;
         text-align: center;
         cursor: pointer;
-        svg{ 
-            color: $text-primary;
-            width: 25px;
-            height: 25px;
-            transition: $speed;
-            path{
-            margin: auto;
-            }
-            &:hover{
-              transform: scale(1.3);
-              color: $active-color;
-            }
         }
-        }
-        
     }
   }
 </style>

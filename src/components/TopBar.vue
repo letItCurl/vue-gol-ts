@@ -83,14 +83,6 @@ export default {
         .color-active{transition: $speed; color: $active-color;}
         cursor: pointer;
         &:hover{transform: scale(1.2);}
-        svg{ 
-            color: $text-primary;
-            width: 25px;
-            height: 25px;
-            path{
-            margin: auto;
-            }
-        }
         }
     }
   }

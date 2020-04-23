@@ -15,7 +15,9 @@ export default new Vuex.Store({
   state: {
     map: astroWorld.map,
     time: {},
-    mobileActive: 'barFive'
+    mobileActive: 'barFive',
+    size: 800,
+    grid: 30
   },
   mutations: {
     NEXT(state){
