@@ -5,7 +5,7 @@ import { flow } from '@/rxjs/index'
 import { backConcern } from '@/concerns/store_concerns'
 import { dataBus } from '@/rxjs/message';
 
-const astroWorld = new world["default"](30);
+var astroWorld = new world["default"](70); // eslint-disable-line
 
 astroWorld.initWorld()
 
@@ -16,8 +16,8 @@ export default new Vuex.Store({
     map: astroWorld.map,
     time: {},
     mobileActive: 'barFive',
-    size: 800,
-    grid: 30
+    size: 2000,
+    grid: 70
   },
   mutations: {
     NEXT(state){
@@ -71,6 +71,12 @@ export default new Vuex.Store({
     },
     MOBILE_ACTIVE(state, payload){
       state.mobileActive = payload
+    },
+    MOBILE_RESIZE(state, payload){
+      state.grid = payload.grid;
+      state.size = payload.size;
+      astroWorld = new world["default"](payload.grid);
+      astroWorld.initWorld()
     }
   },
   actions: {
@@ -111,6 +117,12 @@ export default new Vuex.Store({
     },
     mobileActive(state){
       return state.mobileActive
+    },
+    size(state){
+      return state.size
+    },
+    grid(state){
+      return state.grid
     }
   },
   modules: {

@@ -1,6 +1,6 @@
 <template>
   <div class="gol">
-    <canvas @dragover="dragOver" @drop="drop" @click="clickEv" id="grid" width="800" height="800" n="30"></canvas>
+    <canvas @dragover="dragOver" @drop="drop" @click="clickEv" id="grid" :width="width" :height="width" :n="n"></canvas>
   </div>
 </template>
 
@@ -10,11 +10,6 @@ import { Component, Prop, Vue, Model, Watch } from 'vue-property-decorator';
 @Component
 export default class Grid extends Vue{
 
-  canvas: any;
-  n: any;
-  width: any;
-  rectW: any;
-
   get computedMap (){
     return this.$store.getters.map
   }
@@ -23,16 +18,32 @@ export default class Grid extends Vue{
     return this.$store.getters.mobileActive
   }
 
+  get n (){
+    return this.$store.getters.grid
+  }
+
+  get width (){
+    return this.$store.getters.size
+  }
+
+  get rectW (){
+    return this.$store.getters.size / this.$store.getters.grid
+  }
+
+  get canvas(){
+    return document.getElementById('grid');
+  }
+
   @Watch('computedMap')
   onMapChanged(val: any, oldVal: any) {
     this.validate(this.drawGrid)
   }
-  
+  beforeCreate(){
+    if(window.screen.width<500){
+      this.$store.commit('MOBILE_RESIZE', {size: 800, grid: 30})
+    }
+  }
   mounted(){
-    this.canvas = document.getElementById('grid');
-    this.n = this.canvas.getAttribute('n');
-    this.width = this.canvas.width;
-    this.rectW = this.width / this.n;
     this.validate(this.drawGrid);
   }
   clickEv(e: any){
@@ -62,23 +73,20 @@ export default class Grid extends Vue{
   }
 
   drawGrid(ctx: any): void {
-    const width = ctx.canvas.width;
-    const n = ctx.canvas.getAttribute('n');
-    const rectW = width / n; 
     ctx.fillStyle = '#f694ff';
     ctx.strokeStyle = '#df00f3';
-    for(let j = 1; j < n-1 ; j ++){
-      for(let i = 1; i < n-1 ; i ++){
-        ctx.strokeRect(rectW*i, rectW*j, rectW, rectW);
+    for(let j = 1; j < this.n-1 ; j ++){
+      for(let i = 1; i < this.n-1 ; i ++){
+        ctx.strokeRect(this.rectW*i, this.rectW*j, this.rectW, this.rectW);
       }
     }
-    for(let j = 1; j < n-1 ; j ++){
-      for(let i = 1; i < n-1 ; i ++){
+    for(let j = 1; j < this.n-1 ; j ++){
+      for(let i = 1; i < this.n-1 ; i ++){
         if(this.computedMap[j][i] === 1){
           ctx.fillStyle = '#f694ff';
-          ctx.fillRect(rectW*i+1, rectW*j+1, rectW-2, rectW-2);
+          ctx.fillRect(this.rectW*i+1, this.rectW*j+1, this.rectW-2, this.rectW-2);
         }else{
-          ctx.clearRect(rectW*i+1, rectW*j+1, rectW-2, rectW-2);
+          ctx.clearRect(this.rectW*i+1, this.rectW*j+1, this.rectW-2, this.rectW-2);
         }
       }
     }
