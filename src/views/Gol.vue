@@ -1,17 +1,19 @@
 <template>
-  <div>
+  <perfect-scrollbar>
     <TopBar/>
       <div class="gol">
         <canvas @dragover="dragOver" @drop="drop" @click="clickEv" id="grid" :width="width" :height="width" :n="n"></canvas>
       </div>
     <Controls/>
-  </div>
+  </perfect-scrollbar>
 </template>
 
 <script lang="ts">
+import Controls from "../components/Controls.vue"
+import TopBar from "../components/TopBar.vue"
+
 import { Component, Prop, Vue, Model, Watch } from 'vue-property-decorator';
-import Controls from "@/components/Controls"
-import TopBar from "@/components/TopBar"
+
 
 @Component({
   components:{
