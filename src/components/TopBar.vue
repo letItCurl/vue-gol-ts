@@ -1,9 +1,9 @@
 <template>
-  <div id="topbar">
+  <div id="topbar" class="topbar">
     <div class="panel">
         <ul class="panel-actions">
           <li id="barFive" @click="register" draggable="true" @dragstart="dragstart" class="panel-element">
-            <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="sword" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-sword fa-w-16 fa-lg"><g class="fa-group"><path fill="currentColor" d="M267.88 340.11l-96-96L400 16 493.73.16a16 16 0 0 1 18.1 18.11L496 112z" class="fa-secondary"></path><path fill="currentColor" d="M4.06 425a13.91 13.91 0 0 1 0-19.64l17.28-17.29a13.92 13.92 0 0 1 16-2.6l29.31 14.63 53.43-53.43-53.39-80.09a16 16 0 0 1 2-20.19l18.79-18.8a16 16 0 0 1 22.62 0l174.3 174.3a16 16 0 0 1 0 22.63l-18.8 18.79a16 16 0 0 1-20.18 2l-80.09-53.39-53.43 53.43 14.62 29.26a13.85 13.85 0 0 1-2.6 16l-17.29 17.29a13.88 13.88 0 0 1-19.63 0z" class="fa-primary"></path></g></svg>
+            <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="sword" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-sword fa-w-16 fa-lg"><path fill="currentColor" d="M496.04 0c-.76 0-1.53.05-2.31.17L400 16 165.26 250.74l-39.15-39.15a15.887 15.887 0 0 0-11.31-4.68c-4.09 0-8.19 1.56-11.31 4.68l-34.79 34.8a16.005 16.005 0 0 0-2 20.19l45.9 68.84-39.79 39.79-16.76-8.38a13.82 13.82 0 0 0-6.21-1.47c-3.61 0-7.16 1.4-9.83 4.07L4.07 405.36c-5.42 5.43-5.42 14.22 0 19.64L87 507.93c2.71 2.71 6.27 4.07 9.82 4.07 3.55 0 7.11-1.36 9.82-4.07L142.57 472a13.889 13.889 0 0 0 2.6-16.03l-8.38-16.76 39.78-39.78 68.84 45.9c2.71 1.8 5.8 2.68 8.87 2.68 4.13 0 8.23-1.59 11.32-4.69l34.8-34.79c6.25-6.25 6.25-16.38 0-22.63l-39.15-39.15L496 112l15.83-93.73C513.23 8.49 505.57 0 496.04 0zM266.47 397.2l-14.21 14.21-57.92-38.62-21.83-14.55-18.55 18.55-39.78 39.78-16.31 16.31 10.31 20.63 2.54 5.09-13.9 13.9-57.32-57.32 13.9-13.9 5.08 2.54 20.63 10.32 16.31-16.31 39.79-39.79 18.55-18.55-14.55-21.83-38.62-57.92 14.21-14.21L266.47 397.2zM466.15 96.6L238.63 324.11l-50.74-50.74L415.4 45.85l61.06-10.32-10.31 61.07z" class=""></path></svg>
           </li>
           <li id="frog" @click="register" draggable="true" @dragstart="dragstart" class="panel-element">
             <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="frog" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-frog fa-w-18 fa-2x"><path fill="currentColor" d="M576 189.94c0-21.4-11.72-40.95-30.48-51.23-28.68-15.71-65.94-29.69-85.51-36.62C448.64 61.74 411.98 32 368 32c-42.97 0-78.91 28.42-91.16 67.35C120.27 120.52-.49 254.49 0 416.98.11 451.89 29.08 480 64 480h304c8.84 0 16-7.16 16-16 0-17.67-14.33-32-32-32h-29.74l18.87-25.48c9.29-13.93 14.7-29.24 17.15-44.82L469.62 480H560c8.84 0 16-7.16 16-16 0-17.67-14.33-32-32-32h-53.63l-98.52-104.68 154.44-86.65A58.183 58.183 0 0 0 576 189.94zm-53.19 8.87l-174.79 96.05c-7.56-15.39-18.32-29.45-32.92-40.4-39.66-29.72-95-29.75-134.72 0l-34.78 26.09c-10.59 7.95-12.75 23-4.78 33.61 7.97 10.59 23 12.77 33.59 4.8l34.78-26.09c22.72-17.08 54.44-17.02 77.09 0 27.28 20.45 33.81 58.67 15.59 86.06L262.56 432H64c-8.65 0-15.97-6.95-16-15.17-.41-135.69 100.74-251.73 235.27-269.92l30.21-4.08 9.15-29.08C328.98 93.56 347.21 80 368 80c21.15 0 39.99 14.43 45.81 35.1l6.74 23.93 23.44 8.3c18.33 6.49 52.91 19.47 78.47 33.47 3.47 1.9 5.54 5.32 5.54 9.14 0 3.67-1.99 7.07-5.19 8.87zM368 120c-13.25 0-24 10.74-24 24 0 13.25 10.75 24 24 24s24-10.75 24-24c0-13.26-10.75-24-24-24z" class=""></path></svg>
@@ -29,8 +29,11 @@ export default {
       },
       register(e){
         const el = e.currentTarget.id;
-        document.getElementById(this.getMobileActive).classList.remove('active')
+        const li = document.getElementById(this.getMobileActive)
+        li.classList.remove('active')
+        li.firstElementChild.classList.remove('color-active')
         document.getElementById(el).classList.add('active')
+        document.getElementById(el).firstElementChild.classList.add('color-active')
         this.$store.dispatch('mobileActive', el)
       }
   },
@@ -40,21 +43,21 @@ export default {
     }
   },
   mounted(){
-
     document.getElementById(this.getMobileActive).classList.add('active')
+    document.getElementById(this.getMobileActive).firstElementChild.classList.add('color-active')
   }
 }
 </script>
 
 <style lang="scss">
     @import '@/assets/theme_love.scss';
-    #topbar{
+    .topbar{
     position: fixed;
     top: -1px;
     width: 100%;
     height: 60px;
     transition: $speed;
-    .active{transform: scale(1.3);}
+    .active{transform: scale(1.5);}
     .panel{
         color: $text-primary;
         background: $grey;
@@ -77,6 +80,7 @@ export default {
         width: 45px;
         text-align: center;
         transition: $speed;
+        .color-active{transition: $speed; color: $active-color;}
         cursor: pointer;
         &:hover{transform: scale(1.2);}
         svg{ 
