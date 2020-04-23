@@ -5,7 +5,7 @@
     </template>
     <p>This game is a cellular automata named "the game of life"</p>
     <p>Basically a cell can survive, die or born based on the amount of neibourhoods.</p>
-    <a href="https://www.youtube.com/watch?v=E8kUJL04ELA">click here for more info...</a>
+    <a href="https://www.youtube.com/watch?v=E8kUJL04ELA">#click <span class="link">here</span> for more info...</a>
     <h4>Here is how to play:</h4>
   </ModalPage>
 </template>

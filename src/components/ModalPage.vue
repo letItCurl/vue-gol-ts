@@ -55,7 +55,9 @@ export default class ModalPage extends Vue {
           text-align: center;
         }
         a{
-          text-decoration: underline;
+          span{
+            text-decoration: underline;
+          }
         }
       }
       .footer{
