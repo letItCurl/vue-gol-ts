@@ -7,6 +7,8 @@
     <p>Basically a cell can survive, die or born based on the amount of neibourhoods.</p>
     <a href="https://www.youtube.com/watch?v=E8kUJL04ELA">#click <span class="link">here</span> for more info...</a>
     <h4>Here is how to play:</h4>
+    <p>Select your partern above (Sword Frog Rocket or Alien) and click on the map to spawn paterns:</p>
+    <p>You can play / pause the frames, go forward or backward of one frame or rewind all generations by double clicking ( holding in mobile ) the back btn</p>
   </ModalPage>
 </template>
 

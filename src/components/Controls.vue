@@ -37,7 +37,6 @@ export default class Controls extends Vue {
     this.lockClicks('back')
   }
   rewind(): void {
-    console.log("rewind")
     this.$store.dispatch('rewind', this.toggleIcon)
     this.toggleIcon = !this.toggleIcon
     this.cursorStyle = (this.cursorStyle==='pointer')? 'not-allowed':'pointer'

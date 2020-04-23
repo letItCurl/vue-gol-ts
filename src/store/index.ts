@@ -5,6 +5,7 @@ import { flow } from '@/rxjs/index'
 import { backConcern } from '@/concerns/store_concerns'
 import { dataBus } from '@/rxjs/message';
 
+
 var astroWorld = new world["default"](70); // eslint-disable-line
 
 astroWorld.initWorld()
