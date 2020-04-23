@@ -4,9 +4,9 @@
       <div class="header">
         <slot name="header"></slot>
       </div>
-      <perfect-scrollbar class="content">
+      <div class="content">
         <slot></slot>
-      </perfect-scrollbar>
+      </div>
       <div class="footer">
         <router-link :to="destination">
           <span v-if="destinationName"> {{destinationName}} </span>
@@ -30,12 +30,22 @@ export default class ModalPage extends Vue {
 <style lang="scss">
   @import '@/assets/theme_love.scss';
 
+  div.gif{
+    display: flex;
+    justify-content: center;
+  }
+  @media (max-width: 450px) {
+    img{
+      width: 250px;
+    }
+  }
   .modal-page{
+    letter-spacing: 1px;
     margin: 15px;
     .content-box{
       max-width: 600px;
       margin: auto;
-      margin-top: 100px;
+      margin-top: 10px;
       margin-bottom: 100px;
       display: flex;
       flex-direction: column;
@@ -53,16 +63,17 @@ export default class ModalPage extends Vue {
       .content{
         border-top: 1px solid $text-secondary;
         border-bottom: 1px solid $text-secondary;
-        height: 500px;
         h4{
           text-align: center;
         }
-        a{
-          span{
-            text-decoration: underline;
-          }
+        span{
+          text-decoration: underline;
         }
-      }
+        img{
+          text-align: center;
+        }
+    }
+      
       .footer{
         display: flex;
         justify-content: center;

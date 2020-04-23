@@ -27,7 +27,6 @@
 import { Component, /*Prop,*/ Vue } from 'vue-property-decorator';
 import { dataBus } from '@/rxjs/message';
 
-
 @Component
 export default class Controls extends Vue {
   toggleIcon = false;
@@ -56,7 +55,7 @@ export default class Controls extends Vue {
     if(!this.toggleIcon){this.$store.dispatch(action)}
   }
   mounted(){
-    this.getData = dataBus.getMessage().subscribe(pipe => {if(pipe.message === "UNLOCK"){this.playPause()}});
+    this.getData = dataBus.getMessage().subscribe((pipe: any) => {if(pipe.message === "UNLOCK"){this.playPause()}});
   }
   beforeDestroy(){
     this.getData.unsubscribe()

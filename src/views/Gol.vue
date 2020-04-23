@@ -1,13 +1,24 @@
 <template>
-  <div class="gol">
-    <canvas @dragover="dragOver" @drop="drop" @click="clickEv" id="grid" :width="width" :height="width" :n="n"></canvas>
+  <div>
+    <TopBar/>
+      <div class="gol">
+        <canvas @dragover="dragOver" @drop="drop" @click="clickEv" id="grid" :width="width" :height="width" :n="n"></canvas>
+      </div>
+    <Controls/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue, Model, Watch } from 'vue-property-decorator';
+import Controls from "@/components/Controls"
+import TopBar from "@/components/TopBar"
 
-@Component
+@Component({
+  components:{
+    TopBar,
+    Controls
+    }
+})
 export default class Grid extends Vue{
 
   get computedMap (){

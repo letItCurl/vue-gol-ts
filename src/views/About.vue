@@ -8,7 +8,12 @@
     <a href="https://www.youtube.com/watch?v=E8kUJL04ELA">#click <span class="link">here</span> for more info...</a>
     <h4>Here is how to play:</h4>
     <p>Select your partern above (Sword Frog Rocket or Alien) and click on the map to spawn paterns:</p>
-    <p>You can play / pause the frames, go forward or backward of one frame or rewind all generations by double clicking ( holding in mobile ) the back btn</p>
+    <div class="gif" ><img src="https://res.cloudinary.com/duydvdaxd/image/upload/v1587660536/Vue-Sprint/vue-gol-ts_zmzhic.gif" alt=""></div>
+    <p><span class="link">Drag and drop availible on desktop!</span> I disabled the feature on mobile because if you are not careful, you can refresh the page...</p>
+    <p>You can play / pause the frames, go forward or backward of one frame or rewind all generations by double clicking ( holding in mobile ) the "back" button.</p>
+    <h4>Links:</h4>
+    <h4><a href="https://www.linkedin.com/in/roland-lopez-developer/?locale=en_US"><span class="link">Linkedin</span></a></h4>
+    <h4><a href="https://github.com/letItCurl"><span class="link">GitHub</span></a></h4>
   </ModalPage>
 </template>
 
@@ -26,30 +31,4 @@ export default {
 
 <style lang="scss">
   @import '@/assets/theme_love.scss';
-  #about{
-    .content-box{
-      max-width: 600px;
-      margin: auto;
-      margin-top: 100px;
-      display: flex;
-      flex-direction: column;
-      border-radius: 5px;
-      border: 1px solid $text-secondary;
-      box-shadow: 3px 0px 5px 1px $bg-secondary;
-      padding: 10px;
-      .header{
-        text-align: center;
-        h1{
-          margin: 10px;
-        }
-      }
-      .content{
-        border-top: 1px solid $text-secondary;
-        border-bottom: 1px solid $text-secondary;
-      }
-      .footer{
-        text-align: center;
-      }
-    }
-  }
 </style>

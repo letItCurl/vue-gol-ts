@@ -15,7 +15,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     map: astroWorld.map,
-    time: {},
+    time: flow.subscribe(),
     mobileActive: 'barFive',
     size: 2000,
     grid: 70
