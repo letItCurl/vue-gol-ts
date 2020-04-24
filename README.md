@@ -3,7 +3,7 @@
 <img src="https://res.cloudinary.com/duydvdaxd/image/upload/v1587726533/Vue-Sprint/ezgif.com-gif-maker_pr4ghu.gif"/>
 </p>
 
-<h2 style="text-align: center;" ><a style="Color: #f694ff;" href="https://gameoflife-ts.web.app/" >Click here to try it !</a></h2>
+<h2 align="center"><a style="Color: #f694ff;" href="https://gameoflife-ts.web.app/" >Click here to try it !</a></h2>
 
 # Features
 
