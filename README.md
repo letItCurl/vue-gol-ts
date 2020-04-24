@@ -21,7 +21,7 @@
 - Canvas
 - VueX
 - RxJs
-- Vue touch envents
+- Vue touch events
 
 # About
 Project made from scratch by me, for you, with <3. 
