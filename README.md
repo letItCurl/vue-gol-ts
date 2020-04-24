@@ -1,6 +1,4 @@
-[![](https://img.shields.io/badge/autor-letItCurl-red.svg)](https://www.linkedin.com/in/roland-lopez-developer/?locale=en_US)
 
-# The Game Of Life in Vue.js | Typescript
 
 <p align="center">
 <a style="Color: #f694ff;" href="https://gameoflife-ts.web.app/"><img src="https://res.cloudinary.com/duydvdaxd/image/upload/v1587726533/Vue-Sprint/ezgif.com-gif-maker_pr4ghu.gif"/></a>
@@ -8,7 +6,7 @@
 
 <p align="center" ><a style="Color: #f694ff;" href="https://gameoflife-ts.web.app/" >Click here to try it !</a></p>
 
-# Features
+# Features [![](https://img.shields.io/badge/autor-letItCurl-red.svg)](https://www.linkedin.com/in/roland-lopez-developer/?locale=en_US)
 
 - Drag and drop on desktop.
 - Hold touch event on mobile.
