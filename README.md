@@ -27,7 +27,7 @@ It uses a custom node_module, developed by me, coded also in Typescript.
 
 <div style="display: flex; justify-content: start; margin-top: 50px; align-items: center;">
     <div>
-        <img style="border-radius: 100px; width: 120px;" src="https://res.cloudinary.com/duydvdaxd/image/upload/w_1000,c_fill,ar_1:1,g_auto/v1587723517/Rodeooo_khmmmu.jpg"/>
+        <img style="border-radius: 100px; width: 120px;" src="https://res.cloudinary.com/duydvdaxd/image/upload/w_120,c_fill,ar_1:1,g_auto/v1587723517/Rodeooo_khmmmu.jpg"/>
     </div>
     <div style="margin-left: 30px;">
         <p>Hey there !</br>
