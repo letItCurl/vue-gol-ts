@@ -1,6 +1,6 @@
 # The Game Of Life in Vue.js | Typescript
 
-<p style="text-align: center;"><img src="https://res.cloudinary.com/duydvdaxd/image/upload/v1587660536/Vue-Sprint/vue-gol-ts_zmzhic.gif"></p>
+<img src="https://res.cloudinary.com/duydvdaxd/image/upload/v1587660536/Vue-Sprint/vue-gol-ts_zmzhic.gif">
 
 <h2 style="text-align: center;" ><a style="Color: #f694ff;" href="https://gameoflife-ts.web.app/" >Click here to try it !</a></h2>
 
@@ -26,7 +26,7 @@ Project made from scratch by me, for you, with <3.
 It uses a custom node_module, developed by me, coded also in Typescript.
 
 <div style="display: flex; justify-content: start; margin-top: 50px; align-items: center;">
-    <div>
+    <div style="border-radius: 100px; width: 120px;">
         <img style="border-radius: 100px; width: 120px;" src="https://res.cloudinary.com/duydvdaxd/image/upload/w_120,c_fill,ar_1:1,g_auto/v1587723517/Rodeooo_khmmmu.jpg"/>
     </div>
     <div style="margin-left: 30px;">
