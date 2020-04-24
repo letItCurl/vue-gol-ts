@@ -1,9 +1,9 @@
 # The Game Of Life in Vue.js | Typescript
-<p style="text-align: center">
-<img src="https://res.cloudinary.com/duydvdaxd/image/upload/v1587726533/Vue-Sprint/ezgif.com-gif-maker_pr4ghu.gif"/>
+<p align="center">
+    <img src="https://res.cloudinary.com/duydvdaxd/image/upload/v1587726533/Vue-Sprint/ezgif.com-gif-maker_pr4ghu.gif"/>
 </p>
 
-<h2 align="center"><a style="Color: #f694ff;" href="https://gameoflife-ts.web.app/" >Click here to try it !</a></h2>
+<p align="center" ><astyle="Color: #f694ff;" href="https://gameoflife-ts.web.app/" >Click here to try it !</a></p>
 
 # Features
 
