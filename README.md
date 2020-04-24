@@ -22,6 +22,7 @@
 - VueX
 - RxJs
 - Vue touch events
+- Firebase Hosting
 
 # About
 Project made from scratch by me, for you, with <3. 
