@@ -12,9 +12,9 @@
 - Hold touch event on mobile.
 - Infinite map generation.
 - Can spwan items during the playing action.
-- Map length resized in function with the view port.
+- Map length resized in function of the view port.
 - Rewind generations.
-- Go backward and frontward set by step.
+- Go backward and frontward step by step.
 
 # Technical stack
 - Vue.Js / Ts template
