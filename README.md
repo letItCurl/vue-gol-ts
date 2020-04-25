@@ -1,5 +1,5 @@
 <p align="center">
-  <a style="Color: #f694ff;" href="https://gameoflife-ts.web.app/"><img src="https://res.cloudinary.com/duydvdaxd/image/upload/v1587807194/Vue-Sprint/SUDOKU_IN_REACT_mvivwj.png"/></a>
+  <a style="Color: #f694ff;" href="https://gameoflife-ts.web.app/"><img src="https://res.cloudinary.com/duydvdaxd/image/upload/v1587807194/Vue-Sprint/GAME_OF_LIFE_VUE_xefiy7.png"/></a>
 </p>
 
 <p align="center">
