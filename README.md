@@ -1,7 +1,9 @@
-
+<p align="center">
+  <a style="Color: #f694ff;" href="https://gameoflife-ts.web.app/"><img src="https://res.cloudinary.com/duydvdaxd/image/upload/v1587807194/Vue-Sprint/SUDOKU_IN_REACT_mvivwj.png"/></a>
+</p>
 
 <p align="center">
-<a style="Color: #f694ff;" href="https://gameoflife-ts.web.app/"><img src="https://res.cloudinary.com/duydvdaxd/image/upload/v1587726533/Vue-Sprint/ezgif.com-gif-maker_pr4ghu.gif"/></a>
+  <a style="Color: #f694ff;" href="https://gameoflife-ts.web.app/"><img src="https://res.cloudinary.com/duydvdaxd/image/upload/v1587726533/Vue-Sprint/ezgif.  com-gif-maker_pr4ghu.gif"/></a>
 </p>
 
 <p align="center" ><a style="Color: #f694ff;" href="https://gameoflife-ts.web.app/" >Click here to try it !</a></p>
